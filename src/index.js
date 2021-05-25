@@ -6,15 +6,15 @@ import {Scene2} from './scenes/scene-2'
 
 var config = {
     type: Phaser.AUTO,
-    width: 800,
-    height: 600,
+    width: 900,
+    height: 700,
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: { y: 200 }
+            gravity: { y: 400 }
         }
     },
-    scene: [Scene1, Scene2]
+    scene: [Scene2, Scene1]
 };
 
 var game = new Phaser.Game(config);

@@ -29,5 +29,6 @@ export class Scene2 extends Phaser.Scene {
 
     emitter.startFollow(logo);
 
+    await new Promise(r => setTimeout(r, 5000));
   }
 }

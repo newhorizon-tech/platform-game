@@ -28,7 +28,5 @@ export class Scene2 extends Phaser.Scene {
     logo.setCollideWorldBounds(true);
 
     emitter.startFollow(logo);
-
-    await new Promise(r => setTimeout(r, 5000));
   }
 }

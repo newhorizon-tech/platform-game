@@ -3,17 +3,19 @@ import Phaser from 'phaser'
 import {Scene1} from './scenes/scene-1'
 import {Scene2} from './scenes/scene-2'
 
+
+
 let gameConfig = {
     type: Phaser.AUTO,
     width: 1334,
     height: 750,
-    scene: playGame,
-    backgroundColor: blue,
+    scene: Scene1,
+    backgroundColor: 0x0000CD,
 
     // physics settings
     physics: {
         default: "arcade"
-    }
+    },
 }
 
 // var config = {
@@ -29,4 +31,4 @@ let gameConfig = {
 //     scene: [Scene2, Scene1]
 // };
 
-let game = new Phaser.Game(config);
+let game = new Phaser.Game(gameConfig);

@@ -1,3 +1,5 @@
+import {gameOptions} from './gameOptions'
+
 export class Scene1 extends Phaser.Scene {
 
   constructor() {
@@ -14,8 +16,11 @@ export class Scene1 extends Phaser.Scene {
       fill: 'purple'
     });
     this.add.image(400, 300, 'boat');
+
+    this.player = this.physics.add.sprite(gameOptions.playerStartPosition, game.config.height / 2, "player");
+        this.player.setGravityY(gameOptions.playerGravity);
+
     await new Promise(r => setTimeout(r, 5000));
 
-    this.scene.start("Scene2")
   }
 }

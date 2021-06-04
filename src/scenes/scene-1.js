@@ -17,6 +17,8 @@ export class Scene1 extends Phaser.Scene {
     });
     this.add.image(400, 300, 'boat');
 
+    console.log(gameOptions);
+
     this.player = this.physics.add.sprite(gameOptions.playerStartPosition, game.config.height / 2, "player");
         this.player.setGravityY(gameOptions.playerGravity);
 

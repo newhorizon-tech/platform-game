@@ -5,23 +5,11 @@ import {Scene2} from './scenes/scene-2'
 
 
 
-// let gameConfig = {
-//     type: Phaser.AUTO,
-//     width: 900,
-//     height: 700,
-//     scene: [Scene1, Scene2],
-//     // backgroundColor: 0x0000CD,
-//
-//     // physics settings
-//     physics: {
-//         default: "arcade"
-//     },
-// }
-
 var config = {
     type: Phaser.AUTO,
-    width: 900,
-    height: 700,
+    width: 1283,
+    height: 654,
+    backgroundColor: 0x0000CD,
     physics: {
         default: 'arcade',
         arcade: {

@@ -11,7 +11,7 @@ export class Scene2 extends Phaser.Scene {
     this.load.image('red', 'assets/particles/red.png');
   }
   create() {
-    game.physics.startSystem(Phaser.physics.ARCADE)
+    // game.physics.startSystem(Phaser.physics.ARCADE)
     this.add.image(400, 300, 'sky');
 
     var particles = this.add.particles('red');

@@ -9,7 +9,7 @@ export class Scene1 extends Phaser.Scene {
   preload() {
     this.load.image('boat', 'assets/boat.jpg');
     this.load.image('koala_idle', 'assets/koala_idle.png');
-    this.load.image('tiles', 'assets/tiles.png');
+    this.load.image('tiles', 'assets/tiles_packed.png');
     this.load.tilemapTiledJSON('tilemap','assets/game.json')
 
   }

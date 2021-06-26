@@ -7,8 +7,8 @@ import {Scene2} from './scenes/scene-2'
 
 var config = {
     type: Phaser.AUTO,
-    width: 1600,
-    height: 800,
+    width: 512,
+    height: 512,
     backgroundColor: 0x0000CD,
     physics: {
         default: 'arcade',

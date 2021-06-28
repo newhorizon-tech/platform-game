@@ -7,13 +7,12 @@ import {Scene2} from './scenes/scene-2'
 
 var config = {
     type: Phaser.AUTO,
-    width: 512,
-    height: 512,
-    backgroundColor: 0x0000CD,
+    width: 896,
+    height: 448,
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: { y: 400 }
+            gravity: { y: 200 }
         }
     },
     scene: [Scene1, Scene2]

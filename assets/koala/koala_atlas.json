@@ -1,12 +1,12 @@
 {
     "frames": [
         {
-            "filename": "koala_idle@2x",
+            "filename": "koala_idle",
             "frame": {
                 "x": 0,
                 "y": 0,
-                "w": 144,
-                "h": 204
+                "w": 90,
+                "h": 127
             },
             "anchor": {
                 "x": 0.5,
@@ -14,12 +14,12 @@
             }
         },
         {
-            "filename": "koala_jump@2x",
+            "filename": "koala_jump",
             "frame": {
-                "x": 144,
+                "x": 90,
                 "y": 0,
-                "w": 144,
-                "h": 204
+                "w": 90,
+                "h": 127
             },
             "anchor": {
                 "x": 0.5,
@@ -27,12 +27,12 @@
             }
         },
         {
-            "filename": "koala_walk01@2x",
+            "filename": "koala_walk01",
             "frame": {
-                "x": 288,
+                "x": 180,
                 "y": 0,
-                "w": 144,
-                "h": 204
+                "w": 90,
+                "h": 127
             },
             "anchor": {
                 "x": 0.5,
@@ -40,12 +40,12 @@
             }
         },
         {
-            "filename": "koala_walk02@2x",
+            "filename": "koala_walk02",
             "frame": {
-                "x": 432,
+                "x": 270,
                 "y": 0,
-                "w": 144,
-                "h": 204
+                "w": 90,
+                "h": 127
             },
             "anchor": {
                 "x": 0.5,
@@ -53,12 +53,12 @@
             }
         },
         {
-            "filename": "koala_walk03@2x",
+            "filename": "koala_walk03",
             "frame": {
-                "x": 576,
+                "x": 360,
                 "y": 0,
-                "w": 144,
-                "h": 204
+                "w": 90,
+                "h": 127
             },
             "anchor": {
                 "x": 0.5,

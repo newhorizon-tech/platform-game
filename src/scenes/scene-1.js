@@ -18,7 +18,7 @@ export class Scene1 extends Phaser.Scene {
   async create() {
     const backgroundImage = this.add.image(0, 0,'background').setOrigin(0, 0);
     const map = this.make.tilemap({ key: 'tilemap'})
-    const tileset = map.addTilesetImage('koala_tileset','tiles', 64, 64)
+    const tileset = map.addTilesetImage('koala_tileset','tiles')
 
     const platform = map.createLayer('platform', tileset, 0, 0);
     platform.setCollisionByExclusion(-1, true);

@@ -17,7 +17,7 @@ export class Scene1 extends Phaser.Scene {
   }
 
 
-  async create() {
+  create() {
     const backgroundImage = this.add.image(0, 0, 'background').setOrigin(0, 0);
     const map = this.make.tilemap({
       key: 'tilemap'
@@ -31,6 +31,8 @@ export class Scene1 extends Phaser.Scene {
     this.player.setBounce(0.1);
     this.player.setCollideWorldBounds(true);
     this.physics.add.collider(this.player, platform);
+
+    //Player animations
 
     this.anims.create({
       key: 'walk',
@@ -51,6 +53,13 @@ export class Scene1 extends Phaser.Scene {
       }],
       frameRate: 10,
     });
+
+    this.anims.create({
+  key: 'jump',
+  frames: [{ key: 'player', frame: 'koala_player_1' }],
+  frameRate: 10,
+});
+
 
 
 

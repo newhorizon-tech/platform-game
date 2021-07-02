@@ -37,8 +37,8 @@ export class Scene1 extends Phaser.Scene {
     this.anims.create({
       key: 'walk',
       frames: this.anims.generateFrameNames('player', {
-        prefix: 'koala_player',
-        start: 2,
+        prefix: 'koala_walk0',
+        start: 1,
         end: 3,
       }),
       frameRate: 10,
@@ -49,21 +49,58 @@ export class Scene1 extends Phaser.Scene {
       key: 'idle',
       frames: [{
         key: 'player',
-        frame: 'koala_player_0'
+        frame: 'koala_idle'
       }],
       frameRate: 10,
     });
 
     this.anims.create({
-  key: 'jump',
-  frames: [{ key: 'player', frame: 'koala_player_1' }],
-  frameRate: 10,
-});
+      key: 'jump',
+      frames: [{
+        key: 'player',
+        frame: 'koala_jump'
+      }],
+      frameRate: 10,
+    });
 
-
-
-
-    // await new Promise(r => setTimeout(r, 5000));
 
   }
+
+  update() {
+    this.cursors = this.input.keyboard.createCursorKeys();
+    if (this.cursors.left.isDown) {
+      this.player.setVelocityX(-200);
+      if (this.player.body.onFloor()) {
+        this.player.play('walk', true);
+      }
+    } else if (this.cursors.right.isDown) {
+      this.player.setVelocityX(200);
+      if (this.player.body.onFloor()) {
+        this.player.play('walk', true);
+      }
+    } else {
+      this.player.setVelocityX(0);
+      if (this.player.body.onFloor()) {
+        this.player.play('idle', true);
+      }
+    }
+
+    if ((this.cursors.space.isDown || this.cursors.up.isDown) && this.player.body.onFloor()) {
+      this.player.setVelocityY(-350);
+      this.player.play('jump', true);
+    }
+
+    // Flipped movement
+
+    if (this.player.body.velocity.x > 0) {
+      this.player.setFlipX(false);
+    } else if (this.player.body.velocity.x < 0) {
+      this.player.setFlipX(true);
+    }
+
+
+  }
+
+
+
 }

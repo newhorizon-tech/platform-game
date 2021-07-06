@@ -14,6 +14,7 @@ export class Scene1 extends Phaser.Scene {
     this.load.image('tiles', 'assets/tilesets/platformPack_tilesheet.png');
     this.load.tilemapTiledJSON('tilemap', 'assets/tilemaps/game.json')
 
+
   }
 
 
@@ -78,10 +79,26 @@ export class Scene1 extends Phaser.Scene {
     // Let's get the spike objects, these are NOT sprites
     objects.forEach((object) => {
       console.log(object);
-      const spike = this.spikes.create(object.x, object.y - 100, 'spike').setOrigin(0, 0);
+      const spike = this.spikes.create(object.x, object.y - 32, 'spike').setOrigin(0, 0);
       console.log(spike)
     })
 
+    const playerHit = (player, spike) => {
+        player.setVelocity(0, 0);
+        player.setX(50);
+        player.setY(300);
+        player.play('idle', true);
+        player.setAlpha(0);
+        let tw = this.tweens.add({
+          targets: player,
+          alpha: 1,
+          duration: 100,
+          ease: 'Linear',
+          repeat: 5,
+        });
+    }
+
+    this.physics.add.collider(this.player, this.spikes, playerHit, null, this);
 
   }
 
@@ -119,7 +136,6 @@ export class Scene1 extends Phaser.Scene {
 
 
   }
-
 
 
 }

@@ -74,20 +74,15 @@ export class Scene1 extends Phaser.Scene {
 
     const objectLayer = map.getObjectLayer('objects');
 
-    // const spikobjectLayer.objects['spikes']
-
+    const objects = objectLayer.objects;
     // Let's get the spike objects, these are NOT sprites
-    const spikeObjects = objectLayer.objects["spikes"]
-    console.log(spikeObjects);
-  //
-  //   // Now we create spikes in our sprite group for each object in our map
-    spikeObjects.forEach(spikeObject => {
-      // Add new spikes to our sprite group, change the start y position to meet the platform
-      const spike = this.spikes.create(spikeObject.x, spikeObject.y + 200 - spikeObject.height, 'spike').setOrigin(0, 0);
-    });
-  //
-  //
-  //
+    objects.forEach((object) => {
+      console.log(object);
+      const spike = this.spikes.create(object.x, object.y - 100, 'spike').setOrigin(0, 0);
+      console.log(spike)
+    })
+
+
   }
 
   update() {

@@ -76,9 +76,10 @@ export class Scene1 extends Phaser.Scene {
     const objectLayer = map.getObjectLayer('objects');
 
     const objects = objectLayer.objects;
+
     // Let's get the spike objects, these are NOT sprites
     objects.forEach((object) => {
-      const spike = this.spikes.create(object.x, object.y - 64, 'spike').setOrigin(0, 0);
+      const spike = this.spikes.create(object.x, object.y - 32, 'spike').setOrigin(0, 0);
     })
 
     const playerHit = (player, spike) => {

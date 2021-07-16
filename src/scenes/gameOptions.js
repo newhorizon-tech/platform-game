@@ -4,7 +4,7 @@ let gameOptions = {
     platformSizeRange: [50, 250],
     playerGravity: 800,
     jumpForce: 400,
-    playerStartPosition: 300,
+    playerStartPosition: 200,
     jumps: 4
 }
 

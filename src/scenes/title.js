@@ -27,7 +27,7 @@ export class TitleScene extends Phaser.Scene {
 
     let text = this.add.text(200, 100, "Koala Run", {
       font: 'bold 60pt Arial',
-      fill: "#8888FF",
+      fill: "yellow",
       align: 'center'
     });
 
@@ -35,16 +35,15 @@ export class TitleScene extends Phaser.Scene {
     text.strokeThickness = 16;
     text.setShadow(2, 2, "#333333", 2, true, false);
 
+    // let textContainer = this.add.container(300, 100);
+    //
+    // textContainer.add(text);
+    //
+    //
+    // textContainer.setVelocity(100, 200);
+    // textContainer.setBounce(1, 1);
+    // textContainer.setCollideWorldBounds(true);
 
-    let textSprite = this.add.sprite();
-    textSprite.addChild(text);
-    this.physics.enable(textSprite, Phaser.Physics.ARCADE);
-
-
-    textSprite.setVelocity(100, 200);
-    textSprite.setBounce(1, 1);
-    textSprite.setCollideWorldBounds(true);
-
-    emitter.startFollow(textSprite);
+    emitter.startFollow(text);
   }
 }

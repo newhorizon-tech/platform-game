@@ -1,7 +1,7 @@
 import Phaser from 'phaser'
 
+import {TitleScene} from './scenes/title'
 import {Scene1} from './scenes/scene-1'
-import {Scene2} from './scenes/scene-2'
 
 
 
@@ -16,7 +16,7 @@ var config = {
             debug: true
         }
     },
-    scene: [Scene1, Scene2]
+    scene: [TitleScene, Scene1]
 };
 
 let game = new Phaser.Game(config);

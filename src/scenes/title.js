@@ -1,6 +1,7 @@
 export class TitleScene extends Phaser.Scene {
   constructor() {
-    super("titlescene");
+    super({ key: "TitleScene" });
+
   }
 
 
@@ -35,7 +36,25 @@ export class TitleScene extends Phaser.Scene {
     text.strokeThickness = 16;
     text.setShadow(2, 2, "#333333", 2, true, false);
 
-    // let textContainer = this.add.container(300, 100);
+
+
+    let textContainer = this.add.container(200, 100);
+
+    textContainer.add(text).setSize(200,200);
+
+
+    textContainer.setInteractive();
+
+
+        this.input.on('gameobjectdown', (e) => {
+            console.log("Scene change")
+            this.scene.start('Scene1');
+
+        });
+
+
+
+
     //
     // textContainer.add(text);
     //
@@ -46,4 +65,5 @@ export class TitleScene extends Phaser.Scene {
 
     emitter.startFollow(text);
   }
+
 }

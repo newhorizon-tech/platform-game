@@ -5,7 +5,9 @@ import {
 export class Scene1 extends Phaser.Scene {
 
   constructor() {
-    super({ key: "Scene1" });
+    super({
+      key: "Scene1"
+    });
 
   }
 
@@ -20,18 +22,31 @@ export class Scene1 extends Phaser.Scene {
 
 
   create() {
-    const backgroundImage = this.add.image(0, 0, 'background').setOrigin(0, 0);
+
+    const {
+      width,
+      height
+    } = this.scale
+
+    // const backgroundImage = this.add.image(0, 0, 'background');
+    //
+    //  backgroundImage.displayWidth = this.width;
+    //  backgroundImage.displayHeight = this.height;
+    //
+    console.log(this.background)
+
     const map = this.make.tilemap({
       key: 'tilemap'
     })
     const tileset = map.addTilesetImage('koala_tileset', 'tiles')
 
-    const platform = map.createLayer('platform', tileset, 0, 0);
-    const obsctacles = map.createLayer('obstacles', tileset, 0, 0);
+    const platform = map.createLayer('platform', tileset);
+
+    const obsctacles = map.createLayer('obstacles', tileset);
 
     platform.setCollisionByExclusion(-1, true);
 
-    this.player = this.physics.add.sprite(100, 100, 'player')
+    this.player = this.physics.add.sprite(0, 0, 'player')
     this.player.setBounce(0.1);
     this.player.setCollideWorldBounds(true);
     this.physics.add.collider(this.player, platform);
@@ -84,22 +99,22 @@ export class Scene1 extends Phaser.Scene {
 
     // Let's get the spike objects, these are NOT sprites
     objects.forEach((object) => {
-      const spike = this.spikes.create(object.x, object.y - 32, 'spike').setOrigin(0, 0);
+      const spike = this.spikes.create(object.x+16, object.y -32, 'spike').setOrigin(0, 0);
     })
 
     const playerHit = (player, spike) => {
-        player.setVelocity(0, 0);
-        player.setX(50);
-        player.setY(300);
-        player.play('idle', true);
-        player.setAlpha(0);
-        let tw = this.tweens.add({
-          targets: player,
-          alpha: 1,
-          duration: 100,
-          ease: 'Linear',
-          repeat: 5,
-        });
+      player.setVelocity(0, 0);
+      player.setX(50);
+      player.setY(300);
+      player.play('idle', true);
+      player.setAlpha(0);
+      let tw = this.tweens.add({
+        targets: player,
+        alpha: 1,
+        duration: 100,
+        ease: 'Linear',
+        repeat: 5,
+      });
     }
 
     this.physics.add.collider(this.player, this.spikes, playerHit, null, this);

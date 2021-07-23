@@ -38,7 +38,7 @@ export class TitleScene extends Phaser.Scene {
 
 
 
-    let textContainer = this.add.container(200, 100);
+    let textContainer = this.add.container(0, 0);
 
     textContainer.add(text).setSize(200,200);
 

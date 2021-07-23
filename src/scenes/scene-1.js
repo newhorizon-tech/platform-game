@@ -36,6 +36,10 @@ export class Scene1 extends Phaser.Scene {
     this.player.setCollideWorldBounds(true);
     this.physics.add.collider(this.player, platform);
 
+
+    // Camera will follow the Koala
+    this.cameras.main.startFollow(this.player);
+
     //Player animations
 
     this.anims.create({

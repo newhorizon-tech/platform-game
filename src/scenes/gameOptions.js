@@ -5,7 +5,7 @@ let gameOptions = {
     playerGravity: 800,
     jumpForce: 200,
     playerStartPosition: 200,
-    jumps: 2
+    jumps: 1
 }
 
 export {gameOptions};

@@ -11,7 +11,7 @@ import {
 
 var config = {
   type: Phaser.AUTO,
-  width: 896,
+  width: 496,
   height: 448,
   physics: {
     default: 'arcade',
@@ -22,7 +22,7 @@ var config = {
       debug: true
     }
   },
-  scene: [TitleScene, Scene1]
+  scene: [Scene1]
 };
 
 let game = new Phaser.Game(config);

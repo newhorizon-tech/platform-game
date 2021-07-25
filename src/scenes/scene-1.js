@@ -15,25 +15,20 @@ export class Scene1 extends Phaser.Scene {
     this.load.image('background', 'assets/background.png');
     this.load.atlas('player', 'assets/koala/koala.png', 'assets/koala/koala_atlas.json');
     this.load.image('tiles', 'assets/tilesets/platformPack_tilesheet.png');
-    this.load.tilemapTiledJSON('tilemap', 'assets/tilemaps/game.json')
+    this.load.tilemapTiledJSON('tilemap', 'assets/tilemaps/game.json');
+    this.load.image('star', 'assets/star.png');
+
 
 
   }
 
 
   create() {
-
+    let collects = 0;
     const {
       width,
       height
     } = this.scale
-
-    // const backgroundImage = this.add.image(0, 0, 'background');
-    //
-    //  backgroundImage.displayWidth = this.width;
-    //  backgroundImage.displayHeight = this.height;
-    //
-    console.log(this.background)
 
     const map = this.make.tilemap({
       key: 'tilemap'
@@ -42,6 +37,7 @@ export class Scene1 extends Phaser.Scene {
 
     const platform = map.createLayer('platform', tileset);
     const obsctacles = map.createLayer('obstacles', tileset);
+
     const door = map.createLayer('door', tileset);
 
 
@@ -94,11 +90,47 @@ export class Scene1 extends Phaser.Scene {
       immovable: true
     });
 
-    const objectLayer = map.getObjectLayer('objects');
+    this.stars = this.physics.add.group({
+      allowGravity: false,
+      allowBody: true,
+      immovable: true
+    });
 
+
+
+
+    const starObjectLayer = map.getObjectLayer('stars-objects');
+
+    const starObjects =  starObjectLayer.objects;
+
+    //
+    const starSprites = map.createFromObjects('stars-objects', 37, 'star', 0, true, false, this.stars);
+
+
+    // Retrieving star objects
+    starObjects.forEach((starObject) => {
+      const star = this.stars.create(starObject.x+6, starObject.y -16, 'star');
+
+    })
+
+    const collectStar = (player, star) => {
+      star.disableBody(true, true)
+      this.stars.remove(star)
+      collects = collects +1;
+      console.log(collects)
+      console.log(this.stars)
+
+
+    }
+
+    this.physics.add.collider(this.player, this.stars, collectStar, null, this);
+
+    // Handling spikes
+
+    const objectLayer = map.getObjectLayer('objects');
     const objects = objectLayer.objects;
 
-    // Let's get the spike objects, these are NOT sprites
+    // Retrieving spike objects
     objects.forEach((object) => {
       const spike = this.spikes.create(object.x+16, object.y -32, 'spike').setOrigin(0, 0);
     })

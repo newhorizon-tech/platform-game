@@ -1,15 +1,9 @@
-import Phaser from 'phaser'
+import Phaser from 'phaser';
 
-import {
-  TitleScene
-} from './scenes/title'
-import {
-  Scene1
-} from './scenes/scene-1'
+import TitleScene from './scenes/title';
+import Scene1 from './scenes/scene-1';
 
-
-
-var config = {
+const config = {
   type: Phaser.AUTO,
   backgroundColor: '#4488aa',
   height: 600,
@@ -18,12 +12,12 @@ var config = {
     default: 'arcade',
     arcade: {
       gravity: {
-        y: 300
+        y: 300,
       },
-      debug: false,
-    }
+    },
   },
-  scene: [TitleScene, Scene1]
+  scene: [TitleScene, Scene1],
 };
 
-let game = new Phaser.Game(config);
+const game = new Phaser.Game(config);
+game.load.crossOrigin = true;

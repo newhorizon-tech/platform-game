@@ -19,10 +19,13 @@
   },
   "homepage": "https://github.com/newhorizon-tech/platform-game#readme",
   "devDependencies": {
+    "@babel/eslint-parser": "^7.14.7",
     "@babel/preset-env": "^7.14.2",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.31.0",
     "webpack": "^5.37.1",
     "webpack-cli": "^4.7.0",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^1.16.5"
   },
   "dependencies": {
     "phaser": "^3.54.0"

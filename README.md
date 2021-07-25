@@ -49,12 +49,8 @@ This is a mini-game that :
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/newhorizon-tech/weather-app/issues).
+Feel free to check the [issues page](https://github.com/newhorizon-tech/platform-game/issues).
 
 ## Show your support
 
 Give a ⭐️ if you like this project!
-
-
-
-**Assets**

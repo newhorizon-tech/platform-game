@@ -20,10 +20,9 @@ var config = {
       gravity: {
         y: 300
       },
-      debug: true
     }
   },
-  scene: [Scene1]
+  scene: [TitleScene, Scene1]
 };
 
 let game = new Phaser.Game(config);

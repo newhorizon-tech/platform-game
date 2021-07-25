@@ -24,6 +24,7 @@ export class Scene1 extends Phaser.Scene {
 
 
   create() {
+    // console.log(displayScore)
     let collects = 0;
     const {
       width,
@@ -136,9 +137,15 @@ export class Scene1 extends Phaser.Scene {
     })
 
     const playerHit = (player, spike) => {
+      this.add.text(this.player.x-64,this.player.y, 'Score: '+collects , {
+        fontSize: '32px'
+      });
+
+      console.log("Game Over")
+      console.log("Score"+collects)
       player.setVelocity(0, 0);
-      player.setX(50);
-      player.setY(300);
+      player.setX(this.player.x-20);
+      player.setY(this.player.y-20);
       player.play('idle', true);
       player.setAlpha(0);
       let tw = this.tweens.add({
@@ -148,6 +155,11 @@ export class Scene1 extends Phaser.Scene {
         ease: 'Linear',
         repeat: 5,
       });
+
+      this.scene.pause()
+      console.log
+      // this.scene.start("TitleScene")
+
     }
 
     this.physics.add.collider(this.player, this.spikes, playerHit, null, this);

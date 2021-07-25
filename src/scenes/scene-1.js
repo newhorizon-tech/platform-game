@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import gameOptions from './gameOptions';
+// import gameOptions from './gameOptions';
 
 export default class Scene1 extends Phaser.Scene {
   constructor() {
@@ -17,12 +17,11 @@ export default class Scene1 extends Phaser.Scene {
   }
 
   create() {
-    // console.log(displayScore)
     let collects = 0;
-    const {
-      width,
-      height,
-    } = this.scale;
+    // const {
+    //   width,
+    //   height,
+    // } = this.scale;
 
     const map = this.make.tilemap({
       key: 'tilemap',
@@ -30,9 +29,9 @@ export default class Scene1 extends Phaser.Scene {
     const tileset = map.addTilesetImage('koala_tileset', 'tiles');
 
     const platform = map.createLayer('platform', tileset);
-    const obsctacles = map.createLayer('obstacles', tileset);
+    map.createLayer('obstacles', tileset);
 
-    const door = map.createLayer('door', tileset);
+    map.createLayer('door', tileset);
 
     platform.setCollisionByExclusion(-1, true);
 
@@ -96,18 +95,16 @@ export default class Scene1 extends Phaser.Scene {
 
     // Retrieving star objects
     starObjects.forEach((starObject) => {
-      const star = this.stars.create(starObject.x + 6, starObject.y - 16, 'star');
-      console.log(star);
+      this.stars.create(starObject.x + 6, starObject.y - 16, 'star');
     });
 
-    const starSprites = map.createFromObjects('stars-objects', 37, 'star', 0, true, false, this.stars);
+    // starSprites
+
+    map.createFromObjects('stars-objects', 37, 'star', 0, true, false, this.stars);
 
     const collectStar = (player, star) => {
       star.disableBody(true, true);
-      this.stars.remove(star);
       collects += 1;
-      console.log(collects);
-      console.log(this.stars);
     };
 
     this.physics.add.collider(this.player, this.stars, collectStar, null, this);
@@ -115,26 +112,26 @@ export default class Scene1 extends Phaser.Scene {
     // Handling spikes
 
     const objectLayer = map.getObjectLayer('objects');
-    const { objects } = objectLayer;
+    const {
+      objects,
+    } = objectLayer;
 
     // Retrieving spike objects
     objects.forEach((object) => {
-      const spike = this.spikes.create(object.x + 16, object.y - 32, 'spike').setOrigin(0, 0);
+      this.spikes.create(object.x + 16, object.y - 32, 'spike').setOrigin(0, 0);
     });
 
-    const playerHit = (player, spike) => {
+    const playerHit = (player) => {
       this.add.text(this.player.x - 64, this.player.y, `Score: ${collects}`, {
         fontSize: '32px',
       });
 
-      console.log('Game Over');
-      console.log(`Score${collects}`);
       player.setVelocity(0, 0);
       player.setX(this.player.x - 20);
       player.setY(this.player.y - 20);
       player.play('idle', true);
       player.setAlpha(0);
-      const tw = this.tweens.add({
+      this.tweens.add({
         targets: player,
         alpha: 1,
         duration: 100,
@@ -143,8 +140,6 @@ export default class Scene1 extends Phaser.Scene {
       });
 
       this.scene.pause();
-      console.log;
-      // this.scene.start("TitleScene")
     };
 
     this.physics.add.collider(this.player, this.spikes, playerHit, null, this);

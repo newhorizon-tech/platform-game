@@ -7,9 +7,6 @@ This is a mini-game that :
 - Allows the user to toggle between Celsius and Fahrenheit
 - Displays a background image based on the weather
 
-### Live Demo
-
-[Live Demo Link]()
 
 ## Built With
 
@@ -20,7 +17,10 @@ This is a mini-game that :
 - Webpack
 - Atom
 
-## Prequistes
+
+##Live Server
+
+It's recomended to use webpack live server to run the game
 
 
 ## Getting Started

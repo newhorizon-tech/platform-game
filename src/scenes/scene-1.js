@@ -41,14 +41,15 @@ export class Scene1 extends Phaser.Scene {
     const tileset = map.addTilesetImage('koala_tileset', 'tiles')
 
     const platform = map.createLayer('platform', tileset);
-
     const obsctacles = map.createLayer('obstacles', tileset);
+    const door = map.createLayer('door', tileset);
+
 
     platform.setCollisionByExclusion(-1, true);
 
-    this.player = this.physics.add.sprite(0, 0, 'player')
+    this.player = this.physics.add.sprite(120, 50, 'player')
     this.player.setBounce(0.1);
-    this.player.setCollideWorldBounds(true);
+    // this.player.setCollideWorldBounds(false);
     this.physics.add.collider(this.player, platform);
 
 

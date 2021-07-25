@@ -12,6 +12,8 @@ import {
 var config = {
   type: Phaser.AUTO,
   backgroundColor: '#4488aa',
+  height: 600,
+  width: 600,
   physics: {
     default: 'arcade',
     arcade: {

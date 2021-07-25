@@ -20,6 +20,7 @@ var config = {
       gravity: {
         y: 300
       },
+      debug: false,
     }
   },
   scene: [TitleScene, Scene1]

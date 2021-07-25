@@ -46,7 +46,6 @@ export class Scene1 extends Phaser.Scene {
 
     this.player = this.physics.add.sprite(120, 50, 'player')
     this.player.setBounce(0.1);
-    // this.player.setCollideWorldBounds(false);
     this.physics.add.collider(this.player, platform);
 
 
@@ -84,16 +83,17 @@ export class Scene1 extends Phaser.Scene {
       frameRate: 10,
     });
 
-    // Create a sprite group for all spikes, set common properties to ensure that
-    // sprites in the group don't move via gravity or by player collisions
+    // Sprite groups
+
+    //Spikes
     this.spikes = this.physics.add.group({
       allowGravity: false,
       immovable: true
     });
 
+    //Stars
     this.stars = this.physics.add.group({
       allowGravity: false,
-      allowBody: true,
       immovable: true
     });
 
@@ -105,14 +105,16 @@ export class Scene1 extends Phaser.Scene {
     const starObjects =  starObjectLayer.objects;
 
     //
-    const starSprites = map.createFromObjects('stars-objects', 37, 'star', 0, true, false, this.stars);
 
 
     // Retrieving star objects
     starObjects.forEach((starObject) => {
       const star = this.stars.create(starObject.x+6, starObject.y -16, 'star');
+      console.log(star)
 
     })
+
+    const starSprites = map.createFromObjects('stars-objects', 37, 'star', 0, true, false, this.stars);
 
     const collectStar = (player, star) => {
       star.disableBody(true, true)

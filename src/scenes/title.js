@@ -40,16 +40,6 @@ export class TitleScene extends Phaser.Scene {
 
 
 
-
-    //
-    // textContainer.add(text);
-    //
-    //
-    // textContainer.setVelocity(100, 200);
-    // textContainer.setBounce(1, 1);
-    // textContainer.setCollideWorldBounds(true);
-
-    // emitter.startFollow(text);
   }
 
 }

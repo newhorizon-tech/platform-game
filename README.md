@@ -8,6 +8,9 @@ This is a mini-game that :
 - Displays a background image based on the weather
 
 
+# Live Demo
+
+[Click here for a live demo](https://nervous-lumiere-00b362.netlify.app)
 ## Built With
 
 - Phaser
@@ -18,7 +21,7 @@ This is a mini-game that :
 - Atom
 
 
-##Live Server
+##Webpack
 
 It's recomended to use webpack live server to run the game
 

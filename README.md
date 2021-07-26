@@ -3,9 +3,15 @@
 This is a mini-game that :
 
 - allows you to move your character
+- allows you to collect stars
 - has different obstacles
-- Allows the user to toggle between Celsius and Fahrenheit
-- Displays a background image based on the weather
+
+![Screenshot 1](https://user-images.githubusercontent.com/62493636/126918108-8f54530c-02e2-4269-92bc-08ff530b8dbf.png)
+
+
+![Screenshot 2](https://user-images.githubusercontent.com/62493636/126918070-3d3df587-b594-4046-91b0-8d99b35471c8.png)
+
+
 
 
 # Live Demo

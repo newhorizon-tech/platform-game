@@ -20,4 +20,5 @@ const config = {
 };
 
 const game = new Phaser.Game(config);
-game.load.crossOrigin = true;
+
+export default game;

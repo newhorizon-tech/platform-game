@@ -95,12 +95,10 @@ export default class Scene1 extends Phaser.Scene {
 
     // Retrieving star objects
     starObjects.forEach((starObject) => {
-      this.stars.create(starObject.x + 6, starObject.y - 16, 'star');
+      this.stars.create(starObject.x - 16, starObject.y - 32, 'star').setOrigin(0, 0);
     });
 
     // starSprites
-
-    map.createFromObjects('stars-objects', 37, 'star', 0, true, false, this.stars);
 
     const collectStar = (player, star) => {
       star.disableBody(true, true);
@@ -118,7 +116,7 @@ export default class Scene1 extends Phaser.Scene {
 
     // Retrieving spike objects
     objects.forEach((object) => {
-      this.spikes.create(object.x + 16, object.y - 32, 'spike').setOrigin(0, 0);
+      this.spikes.create(object.x + 16, object.y - 32, 'spike').setOrigin(0, 0).setAlpha(0);
     });
 
     const playerHit = (player) => {

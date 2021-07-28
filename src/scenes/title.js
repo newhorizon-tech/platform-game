@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 
-import { getBoard } from './leaderboard';
+import { getScores } from '../lib/leaderboard';
 
 export default class TitleScene extends Phaser.Scene {
   constructor() {
@@ -29,7 +29,7 @@ export default class TitleScene extends Phaser.Scene {
     playButton.setInteractive();
 
     this.input.on('gameobjectdown', async () => {
-      getBoard();
+      getScores();
       this.scene.start('Scene1');
     });
   }

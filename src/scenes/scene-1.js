@@ -132,12 +132,14 @@ export default class Scene1 extends Phaser.Scene {
       this.tweens.add({
         targets: player,
         alpha: 1,
-        duration: 100,
+        duration: 4000,
         ease: 'Linear',
         repeat: 5,
       });
 
       this.scene.pause();
+
+      this.scene.start('leader');
     };
 
     this.physics.add.collider(this.player, this.spikes, playerHit, null, this);

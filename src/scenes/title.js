@@ -29,7 +29,6 @@ export default class TitleScene extends Phaser.Scene {
     playButton.setInteractive();
 
     this.input.on('gameobjectdown', async () => {
-      getScores();
       this.scene.start('Scene1');
     });
   }

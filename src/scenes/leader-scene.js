@@ -13,22 +13,21 @@ export default class Leader extends Phaser.Scene {
     this.load.image('play', '/assets/play-button.png');
   }
 
-  create() {
-    const text = this.add.text(50, 50, 'Leaderboard', {
+  async create() {
+    console.log('Leader Sceme');
+    let text = this.add.text(50, 50, 'Leaderboard', {
       font: 'bold 30pt Arial',
       fill: 'yellow',
       align: 'center',
     });
 
-    text.stroke = '#de77ae';
-    text.strokeThickness = 16;
-    text.setShadow(2, 2, '#333333', 2, true, false);
-
-    const Button = playButton.setInteractive();
-
-    this.input.on('gameobjectdown', async () => {
-      getScores();
-      this.scene.start('Scene1');
+    const scores = await getScores();
+    scores.forEach((score) => {
+      text = this.add.text(50, text.y + 50, `${score.user}: ${score.score}`, {
+        font: 'bold 10pt Arial',
+        fill: 'yellow',
+        align: 'center',
+      });
     });
   }
 }

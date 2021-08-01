@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 
 import TitleScene from './scenes/title';
 import Scene1 from './scenes/scene-1';
+import leader from './scenes/leader-scene';
 
 const config = {
   type: Phaser.AUTO,
@@ -16,7 +17,7 @@ const config = {
       },
     },
   },
-  scene: [TitleScene, Scene1],
+  scene: [TitleScene, Scene1, leader],
 };
 
 const game = new Phaser.Game(config);

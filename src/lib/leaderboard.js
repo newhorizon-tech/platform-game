@@ -7,11 +7,7 @@ const getScores = async () => {
   const data = await getData();
 
   const leaderboard = data.result;
-  // console.log(leaderboard)
-  console.table(leaderboard);
-  // Object.keys(leaderboard).forEach((key) => {
-  //   console.log(`Player: ${leaderboard[key].user}. Score: ${leaderboard[key].score}`);
-  // });
+  return leaderboard;
 };
 
 const postScore = async (newName, newScore) => {

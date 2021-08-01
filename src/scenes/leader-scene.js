@@ -14,7 +14,6 @@ export default class Leader extends Phaser.Scene {
   }
 
   async create() {
-    console.log('Leader Sceme');
     let text = this.add.text(50, 50, 'Leaderboard', {
       font: 'bold 30pt Arial',
       fill: 'yellow',

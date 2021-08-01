@@ -1,7 +1,5 @@
 import Phaser from 'phaser';
 
-import { getScores } from '../lib/leaderboard';
-
 export default class TitleScene extends Phaser.Scene {
   constructor() {
     super({

@@ -76,6 +76,10 @@
   },
   "homepage": "https://github.com/newhorizon-tech/platform-game#readme",
   "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.9",
+    "babel-jest": "^27.0.6",
+    "jest": "^27.0.6",
     "webpack-dev-middleware": "^5.0.0",
     "webpack-dev-server": "^3.11.2",
     "webpack-hot-middleware": "^2.25.0"
